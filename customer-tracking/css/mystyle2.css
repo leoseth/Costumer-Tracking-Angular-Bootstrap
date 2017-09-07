@@ -1,0 +1,79 @@
+﻿/*#outerbox {width:250px;overflow:hidden;}
+#sliderbox {position:relative;margin-top:-210px;width:1750px;animation-name:slidetinder;animation-duration:20s;animation-iteration-count:infinite;}
+#sliderbox img {float:left;}
+@Keyframes slidetinder {
+    0%  {left:0px;}
+    20% {left:0px;}
+    25% {left:-250px;}
+    45% {left:-250px;}
+    50% {left:-500px;}
+    70% {left:-500px;}
+    75% {left:-1250px;}
+    95% {left:-1250px;}
+    100%{left:-1750px;}
+}
+/*margin-left:550px;*/
+
+#outerbox  {width:150px;height:100px;overflow:hidden;margin-left:1195px;margin-top:-215px;}
+#sliderbox {position:relative;width:1200px;animation-name:slidetinder;animation-duration:20s;animation-iteration-count:infinite;}
+#sliderbox img {float: left;}
+
+@Keyframes slidetinder {
+    0%   {left: 0px;}
+    25%  {left:-150px;}
+    45%  {left:-300px;}
+    50%  {left:-450px;}
+    70%  {left:-600px;}
+    75%  {left:-750px;}
+    95%  {left:-900px;}
+    100% {left:-1050px;}
+}
+
+/*@Keyframes slidetinder {
+    0%   {left: 0px;}
+    20%  {left: 0px;}
+    25%  {left: -170px;}
+    45%  {left: -170px;}
+    50%  {left: -340px;}
+    70%  {left: -340px;}
+    75%  {left: -850px;}
+    95%  {left: -850px;}
+    100% {left: -1190px;}
+}*/
+
+
+/*-----------------------------------------*/
+
+#outerbox {
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+    margin-left: 1194px;
+    margin-top: -215px;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+}
+/*#sliderbox {position:relative;width:1200px;animation-name:slidetinder;animation-duration:20s;animation-iteration-count:infinite;}*/
+#outerbox {border-style:solid;border-color:white;border-width:4px;margin-left:154%;margin-top:-215px;width:20%;height:15%;overflow:hidden;}
+
+#sliderbox{position: relative;background-attachment: fixed;background-size:cover;background-position:top;background-repeat:no-repeat;animation-name:slidetinder;animation-duration:20s;animation-iteration-count:infinite;width:800%;}
+
+#sliderbox img{float:left;width: 13%;height:10%;overflow:hidden;}
+
+@Keyframes slidetinder {
+    0%  {left:0px;}
+    25% {left:-150px;}
+    45% {left:-300px;}
+    50% {left:-450px;}
+    70% {left:-600px;}
+    75% {left:-750px;}
+    95% {left:-900px;}
+    100%{left:-1050px;}
+}
+
+
+
+
+
+

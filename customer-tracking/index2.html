@@ -1,0 +1,827 @@
+﻿<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8" />
+    <title>Customer Tracking with Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="favicon.ico" rel="icon" />
+    <script src="js/Global.js"></script>
+    <script src="lib/jquery/jquery-1.10.2.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/bootstrap/css/normalize.css" rel="stylesheet" />
+    <link href="css/mystyle.css" rel="stylesheet" />
+
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+</head>
+
+<body>
+    <style>
+        .custcol {
+            border-style: solid;
+            border-width: 2px;
+            border-color: silver;
+            height: 260px;
+            background-color: #8FBC8F;
+        }
+
+        .custrowborder {
+            border-style: solid;
+            border-width: 4px;
+            border-color: white;
+            height: 270px;
+        }
+
+        .lblcol1 {
+            color: white;
+            left: -10px;
+            top: -10px;
+        }
+
+        .colcol1 {
+            max-width: 280px;
+            left: -10px;
+            top: -10px;
+        }
+
+        .col1text {
+            max-width: 280px;
+            height: 25px;
+            left: -10px;
+            font-size: calc(-3px + 1.0vw);
+        }
+
+        .col1textcustype {
+            max-width: 280px;
+            height: 27px;
+            left: -10px;
+            font-size: calc(-3px + 1.0vw);
+        }
+
+        .lblcol2 {
+            color: white;
+            top: 33px;
+            left: -10px;
+        }
+
+        .colcol2 {
+            max-width: 280px;
+            left: -20px;
+            top: 33px;
+        }
+
+        .col2text {
+            max-width: 280px;
+            height: 25px;
+            font-size: 1.0vw;
+        }
+
+        .col2textaddr {
+            width: 170%;
+            max-width: 280px;
+            height: 25px;
+            font-size: 1.0vw;
+        }
+
+        .lblcol3 {
+            color: white;
+            top: 33px;
+            left: 0px;
+        }
+
+        .colcol3 {
+            left: -45px;
+            top: 33px;
+            max-width: 280px;
+        }
+
+        .col3text {
+            height: 25px;
+            max-width: 280px;
+            font-size: 1.0vw;
+        }
+
+        .col3textidnum {
+            height: 27px;
+            max-width: 280px;
+            font-size: calc(-3px + 1.0vw);
+        }
+
+        .p1 {
+            font-size: 1.0vw;
+            width: 140px;
+        }
+
+        .p1lbl {
+            font-size: 1.0vw;
+        }
+
+        .p2 {
+            font-size: 1.0vw;
+            width: 140px;
+        }
+
+        .p {
+            font-size: 1.0vw;
+        }
+
+        .lblcustlib {
+            left: -12px;
+            font-weight: 800;
+            color: lightyellow;
+        }
+
+        .lblallfields {
+            top: -10px;
+        }
+
+        .custbutton {
+            border-style: solid;
+            border-width: 1px;
+            border-color: white;
+            top: -5px;
+            height: 50px;
+            margin-left: -210px;
+        }
+
+        .custbutton1 {
+            left: -80px;
+            top: 7px;
+            max-width: 280px;
+            font-size: 1.0vw;
+        }
+
+        .custbutton2 {
+            height: 35px;
+            width: 140px;
+            max-width: 280px;
+            font-size: 1.0vw;
+        }
+
+        .custbutton3border {
+            margin-left: auto;
+            margin-top: auto;
+            left: 5px;
+            top: 235px;
+            position: absolute;
+            height: 20px;
+            -moz-box-shadow: 0 0 2px white;
+            -webkit-box-shadow: 0 0 2px white;
+            box-shadow: 0 0 2px white
+        }
+
+        .custbutton3 {
+            border: 0px;
+            max-width: 280px;
+            /*font-size: 1.0vw;*/
+            font-size: 0.90vw;
+            text-align: center;
+            margin-left: auto;
+            margin-top: auto;
+            height: 20px;
+            left: -15px;
+            -webkit-border-radius: 5px;
+        }
+    </style>
+
+    <style>
+        .carcol {
+            border-style: solid;
+            border-width: 2px;
+            border-color: silver;
+            height: 170px;
+            background-color: #8FBC8F;
+        }
+
+        .lblcarlib {
+            left: -12px;
+            font-weight: 800;
+            color: lightyellow;
+        }
+
+        .lblcarcol1 {
+            color: white;
+            left: -10px;
+            top: 20px;
+        }
+
+        .colcarcol1 {
+            max-width: 280px;
+            left: -10px;
+            top: 20px;
+        }
+
+        .lblcarcol2 {
+            color: white;
+            left: -15px;
+            top: 40px;
+        }
+
+        .colcarcol2 {
+            max-width: 280px;
+            left: -20px;
+            top: 40px;
+        }
+
+        .lblcarcol3 {
+            color: white;
+            left: -15px;
+            top: 40px;
+        }
+
+        .colcarcol3 {
+            max-width: 280px;
+            left: -53px;
+            top: 40px;
+        }
+
+        .colcar3text {
+            height: 25px;
+            max-width: 280px;
+            font-size: 1.0vw;
+            width: 108%
+        }
+
+        .cartbutton3border {
+            margin-left: auto;
+            margin-top: auto;
+            left: 5px;
+            top: 405px;
+            position: absolute;
+            height: 20px;
+            -moz-box-shadow: 0 0 2px white;
+            -webkit-box-shadow: 0 0 2px white;
+            box-shadow: 0 0 2px white;
+        }
+
+        .carbutton3 {
+            border: 0px;
+            max-width: 280px;
+            font-size: 0.90vw;
+            text-align: center;
+            margin-left: auto;
+            margin-top: auto;
+            height: 20px;
+            left: -15px;
+            -webkit-border-radius: 5px;
+        }
+    </style>
+
+    <style>
+        .transcol {
+            border-style: solid;
+            border-width: 2px;
+            border-color: silver;
+            height: 190px;
+            background-color: #8FBC8F;
+        }
+
+        .lbltranslib {
+            left: -12px;
+            font-weight: 800;
+            color: lightyellow;
+            width: 175px;
+        }
+
+        .lbltranscol1 {
+            color: white;
+            left: -10px;
+            top: 20px;
+        }
+
+        .coltranscol1 {
+            max-width: 280px;
+            left: -10px;
+            top: 20px;
+        }
+
+        .col1transtext {
+            height: 25px;
+            left: -10px;
+            font-size: calc(-4px + 1.0vw);
+            width: 160%
+        }
+        /*.col1transtext {max-width: 280px;height: 25px;left: -10px;font-size: calc(-3px + 1.0vw);width: 200%}*/
+
+        .lbltranscol2 {
+            color: white;
+            left: -15px;
+            top: 40px;
+        }
+
+        .coltranscol2 {
+            max-width: 280px;
+            left: -20px;
+            top: 40px;
+        }
+
+        .lbltransexpire2 {
+            color: white;
+            left: -15px;
+            top: 22px;
+        }
+
+        .lbltransmainsched1 {
+            color: white;
+            left: -15px;
+            top: 15px;
+        }
+
+        .lbltransmainsched2 {
+            color: white;
+            left: -15px;
+            top: 0px;
+        }
+
+        .coltransmaincol2 {
+            max-width: 280px;
+            left: -20px;
+            top: 11px;
+        }
+
+        .lbltranscol3 {
+            color: white;
+            left: -18px;
+            top: 40px;
+        }
+
+        .lbltranscol3duedate {
+            color: white;
+            left: -18px;
+            top: 23px;
+        }
+
+        .coltranscol3 {
+            max-width: 280px;
+            left: -50px;
+            top: 40px;
+        }
+
+        .lbltranscol3sms {
+            color: white;
+            left: -18px;
+            top: 16px;
+        }
+
+        .coltranscol3sms {
+            max-width: 280px;
+            left: -50px;
+            top: 10px;
+        }
+
+        .col3transtextsms {
+            width: 180%;
+            max-width: 280px;
+            height: 26px;
+            font-size: calc(-2px + 1.0vw);
+        }
+
+        .pmessages {
+            font-size: calc(-1.5px + 1.0vw);
+            width: 140px;
+        }
+    </style>
+
+    <div class="container-fluid" ng-controller="customercontroller">
+        <div class="row custcol">
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset--1 lblcustlib">
+                        <i class="p1lbl">Customer Libray</i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-3 lblallfields">
+                        <i class="p1lbl">All fields are required</i>
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol1"><p class="p1">RFID_Code</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol1">
+                        <input id="rfidcode" class="form-control col1text" type="text" ng-keypress="rfidcodekeypress($event.keyCode)" ng-keyup="rfidcodekeyup($event.keyCode)" />
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol1"><p class="p1">Customer ID</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol1">
+                        <input id="customerid" type="text" class="form-control col1text" ng-keypress="custidkeypress($event.keyCode)" ng-keyup="custidkeyup($event.keyCode)" />
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol1"><p class="p1">Customer Type</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol1">
+                        <select id="custtype" class="form-control col1textcustype" ng-keyup="custtypekeyup($event.keyCode)" ng-change="custtypechange($event)" ng-model="custtypemodel">
+                            <option value=""></option>
+                            <option value="Invidual">Individual</option>
+                            <option value="Company">Company</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol1"><p class="p1">Company Name</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol1">
+                        <input id="companyname" type="text" class="form-control col1text" ng-keypress="compkeypress($event.keyCode)" ng-keyup="compkeyup($event.keyCode)" />
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol1"><p class="p1">Lastname</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol1">
+                        <input id="lastname" type="text" class="form-control col1text" ng-keypress="lastkeypress($event.keyCode)" ng-keyup="lastkeyup($event.keyCode)" />
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol1"><p class="p1">Firstname</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol1">
+                        <input id="firstname" type="text" class="form-control col1text" ng-keypress="firstkeypress($event.keyCode)" ng-keyup="firstkeyup($event.keyCode)" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol2"><p class="p2">Middle Name</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol2">
+                        <input id="middlename" class="form-control col2text" type="text" ng-keypress="middlekeypress($event.keyCode)" ng-keyup="middlekeyup($event.keyCode)" />
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol2"><p class="p2">Address</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol2">
+                        <textarea id="address" class="form-control col2textaddr" ng-keyup="addresskeyup($event.keyCode)"></textarea>
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol2"><p class="p2">Phone number</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol2">
+                        <input id="phonenum" class="form-control col2text" ng-keypress="phonenumkeypress($event.keyCode)" ng-keyup="phonenumkeyup($event.keyCode)" />
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol2"><p class="p2">Mobile number</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol2">
+                        <input id="mobilenum" type="text" class="form-control col2text" ng-keypress="mobilenumkeypress($event.keyCode)" ng-keyup="mobilenumkeyup($event.keyCode)" />
+                    </div>
+                </div>
+                <div class="row" style="height:1px"></div>
+                <div class="row form-group">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol2"><p class="p2">Email address</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcol2">
+                        <input id="emailadd" type="text" class="form-control col2text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol3"><p class="p">Birth date</p></div>
+                        <div class="col-xs-6 col-md-6 col-md-offset--6 colcol3">
+                            <input id="birthdate" class="form-control col3text" type="date" />
+                        </div>
+                    </div>
+                    <div class="row" style="height:6px"></div>
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol3"><p class="p">Birth place</p></div>
+                        <div class="col-xs-6 col-md-6 col-md-offset--6 colcol3">
+                            <input id="birthplace" type="text" class="form-control col3text" />
+                        </div>
+                    </div>
+                    <div class="row" style="height:6px"></div>
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol3"><p class="p">Nationality</p></div>
+                        <div class="col-xs-6 col-md-6 col-md-offset--6 colcol3">
+                            <input id="nationality" type="text" class="form-control col3text" />
+                        </div>
+                    </div>
+                    <div class="row" style="height:6px"></div>
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol3"><p class="p">ID type</p></div>
+                        <div class="col-xs-6 col-md-6 col-md-offset--6 colcol3">
+                            <select id="idtype" type="text" class="form-control col3textidnum">
+                                <option value=""></option>
+                                <option value="PASSPORT">PASSPORT</option>
+                                <option value="SSS">SSS</option>
+                                <option value="TIN">TIN</option>
+                                <option value="VOTERS">VOTERS</option>
+                                <option value="DRIVER S LICENSE">DRIVER&#39;S LICENSE</option>
+                                <option value="SENIOR">SENIOR</option>
+                                <option value="GSIS">GSIS</option>
+                                <option value="OFW">OFW</option>
+                                <option value="SCHOOL">SCHOOL</option>
+                                <option value="OTHERS">OTHERS</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="height:6px"></div>
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3 col-md-offset-0 lblcol3"><p class="p">ID number</p></div>
+                        <div class="col-xs-6 col-md-6 col-md-offset--6 colcol3">
+                            <input id="idnumber" type="text" class="form-control col3text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-md-7 col-md-offset-0 custbutton3border">
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 carbutton3" type="button" value="Submit">Add</button>
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 carbutton3" type="button" value="Submit">Edit</button>
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 carbutton3" type="button" value="Submit">Delete</button>
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 carbutton3" type="button" value="Submit">View</button>
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 carbutton3" type="button" value="Submit">Search RFID</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-7 col-md-7 col-md-offset-0">
+                    <div id="outerbox">
+                        <div id="sliderbox">
+                            <img src="Images/2.png" />
+                            <img src="Images/3.png" />
+                            <img src="Images/4.png" />
+                            <img src="Images/5.png" />
+                            <img src="Images/6.png" />
+                            <img src="Images/7.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" ng-controller="carcontroller">
+        <div class="row carcol">
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset--1 lblcarlib">
+                        <i class="p1lbl">Car Library</i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol1"><p class="p1">Plate Number</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcarcol1">
+                        <input id="platenum" class="form-control col1text" type="text" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol1"><p class="p1">Make</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcarcol1">
+                        <input id="make" class="form-control col1text" type="text" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol1"><p class="p1">Model</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcarcol1">
+                        <input id="model" class="form-control col1text" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol2"><p class="p1">Registration no.</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcarcol2">
+                        <input id="regisnum" class="form-control col1text" type="text" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol2"><p class="p1">Registration date</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcarcol2">
+                        <input id="regisdate" class="form-control col1text" type="date" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol2"><p class="p1">Color</p></div>
+                    <div class="col-xs-4 col-md-6 col-md-offset--6 colcarcol2">
+                        <input id="color" class="form-control col1text" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol3"><p class="p1">Chasis no.</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcarcol3">
+                        <input id="chassisnum" class="form-control colcar3text" type="text" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lblcarcol3"><p class="p1">Engine no.</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 colcarcol3">
+                        <input id="enginenum" class="form-control colcar3text" type="text" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-md-7 col-md-offset-0 cartbutton3border">
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 custbutton3" type="button" value="Submit">Add</button>
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 custbutton3" type="button" value="Submit">Edit</button>
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 custbutton3" type="button" value="Submit">Delete</button>
+                    <button class="btn btn-default col-xs-2 col-md-2 col-md-offset-0 custbutton3" type="button" value="Submit">View</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-7 col-md-7 col-md-offset-0">
+                    <div id="outerbox2">
+                        <div id="sliderbox2">
+                            <img src="Images/car-1.png" />
+                            <img src="Images/car-2.png" />
+                            <img src="Images/car-3.png" />
+                            <img src="Images/car-4.png" />
+                            <img src="Images/car-5.png" />
+                            <img src="Images/car-6.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid" ng-controller="transcontroller">
+        <div class="row transcol">
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset--1 lbltranslib">
+                        <i class="p1lbl">Transaction Library</i>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol1"><p class="p1">Invoice no.</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol1">
+                        <input id="invoiceno" class="form-control col1text" type="text" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol1"><p class="p1">Transaction no.</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol1">
+                        <input id="transno" class="form-control col1text" type="text" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol1"><p class="p1">Transaction date</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol1">
+                        <input id="transadte" class="form-control col1text" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol1"><p class="p1">Service</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol1">
+                        <select id="service" class="form-control col1transtext">
+                            <option value=""></option>
+                            <option value="AIRCON CLEANING">AIRCON CLEANING</option>
+                            <option value="CHANGE OIL - SYNTHETIC">CHANGE OIL - SYNTHETIC</option>
+                            <option value="CHANGE OIL - SEMI SYNTHETIC">CHANGE OIL - SEMI SYNTHETIC</option>
+                            <option value="CHANGE OIL - REGULAR GRADE">CHANGE OIL - REGULAR GRADE</option>
+                            <option value="GEAR OIL REPLACED REGULAR">GEAR OIL REPLACED REGULAR</option>
+                            <option value="GEAR OIL REPLACED SYNTHETIC BLEND">GEAR OIL REPLACED SYNTHETIC BLEND</option>
+                            <option value="CVT FLUID REPLACED">CVT FLUID REPLACED</option>
+                            <option value="COOLANT REPLACED">COOLANT REPLACED</option>
+                            <option value="BRAKE FLUID REPLACED">BRAKE FLUID REPLACED</option>
+                            <option value="SPARK PLUG REGULAR">SPARK PLUG REGULAR</option>
+                            <option value="SPARK PLUG PLATINUM">SPARK PLUG PLATINUM</option>
+                            <option value="SPARK PLUG IRIDIUM">SPARK PLUG IRIDIUM</option>
+                            <option value="BRAKE PAD CLEANING FRONT">BRAKE PAD CLEANING FRONT</option>
+                            <option value="BRAKE PAD CLEANING REAR">BRAKE PAD CLEANING REAR</option>
+                            <option value="BRAKE SHOE CLEANING">BRAKE SHOE CLEANING</option>
+                            <option value="TIRE ROTATION">TIRE ROTATION</option>
+                            <option value="PANASONIC BATTERY">PANASONIC BATTERY</option>
+                            <option value="AMPLIFIER INSTALLATION">AMPLIFIER INSTALLATION</option>
+                            <option value="SPEAKERS INSTALLATION">SPEAKERS INSTALLATION</option>
+                            <option value="HEADUNIT SINGLE DIN">HEADUNIT SINGLE DIN</option>
+                            <option value="HEADUNIT 2 DIN WITH GPS">HEADUNIT 2 DIN WITH GPS</option>
+                            <option value="HEADUNIT 2 DIN WITHOUT GPS">HEADUNIT 2 DIN WITHOUT GPS</option>
+                            <option value="HEADREST MONITOR">HEADREST MONITOR</option>
+                            <option value="ROOF MOUNT MONITOR">ROOF MOUNT MONITOR</option>
+                            <option value="ALARM">ALARM</option>
+                            <option value="CENTRAL LOCK">CENTRAL LOCK</option>
+                            <option value="PANEL REPAINT">PANEL REPAINT</>
+                            <option value="WASH OVER">WASH OVER</option>
+                            <option value="SCRAPE TO METAL">SCRAPE TO METAL</option>
+                            <option value="3 STEPS DETAILING">3 STEPS DETAILING</option>
+                            <option value="MACHINE WAX">MACHINE WAX</option>
+                            <option value="OTHERS">OTHERS</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol2"><p class="p1">Type Of Service</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol2">
+                        <select id="typeofserve" class="form-control col1text">
+                            <option value=""></option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option vlaue="Warranty">Warranty</option>
+                            <option value="Maintenance / Warranty">Maintenance / Warranty</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol2"><p class="p1">Warranty Status</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol2">
+                        <select id="warstatus" class="form-control col1text">
+                            <option value=""></option>
+                            <option value="Active">Active</option>
+                            <option value="Expired">Expired</option>
+                            <option value="None">Npne</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!--<div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol2"><p class="p1"><span style="font-size:calc(-1.4px + 1.0vw);">Warranty expiration</span></p></div>-->
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol2"><p class="p1"><span style="font-size:1.0vw;">Warranty</span></p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol2">
+                        <input id="warexpire" class="form-control col1text" type="date" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltransexpire2"><p class="p1"><span style="font-size:1.0vw;">expiration</span></p></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltransmainsched1"><p class="p1">Maintenance</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltransmaincol2">
+                        <select id="mainsched" class="form-control col1text">
+                            <option value=""></option>
+                            <option value="1 week">1 week</option>
+                            <option Value="2 weeks">2 weeks</option>
+                            <option Value="3 weeks">3 weeks</option>
+                            <option Value="4 weeks">4 weeks</option>
+                            <option Value="1 month">1 month</option>
+                            <option Value="2 months">2 months</option>
+                            <option Value="3 months">3 months</option>
+                            <option Value="4 months">4 months</option>
+                            <option Value="5 months">5 months</option>
+                            <option Value="6 months">6 months</option>
+                            <option Value="7 months">7 months</option>
+                            <option Value="8 months">8 months</option>
+                            <option Value="9 months">9 months</option>
+                            <option Value="10 months">10 months</option>
+                            <option Value="11 months">11 months</option>
+                            <option Value="1 year">1 year</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltransmainsched2"><p class="p1">Schedule</p></div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-md-4">
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol3"><p class="p1">Maintenance</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol3">
+                        <input id="duedate" class="form-control col1text" type="date" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol3duedate"><p class="p1">due date</p></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol3sms"><p class="pmessages">SMS message</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol3sms">
+                        <textarea id="smsmess" class="form-control col3transtextsms" style="height:56px;"></textarea>
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol3message"><p class="p1">message</p></div>
+                </div>-->
+                <div class="row">
+                    <div class="col-xs-4 col-md-3 col-md-offset-0 lbltranscol3sms"><p class="pmessages">Service details</p></div>
+                    <div class="col-xs-6 col-md-6 col-md-offset--6 coltranscol3sms">
+                        <textarea id="servicedetails" class="form-control col3transtextsms" style="height:56px"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/customer.js"></script>
+    <!--<script src="js/customer_keypressr.js"></script>-->
+    <script src="js/car_keypress.js"></script>
+    <script src="js/transaction_keypress.js"></script>
+</body>
+</html>

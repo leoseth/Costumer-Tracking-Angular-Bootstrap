@@ -1,0 +1,3 @@
+﻿1>------ Build started: Project: customer-tracking, Configuration: Debug Any CPU ------
+1>  customer-tracking -> C:\cbv-angular-bootstrap\customer-tracking\bin\customer-tracking.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
